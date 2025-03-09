@@ -1,12 +1,29 @@
-# React + Vite
+# Tic-Tac-Toe (v2.0)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Update to the previous major React project: ***Tic-Tac-Toe***.\
+Made with the help of a tutorial from [**React.dev**](https://react.dev/learn/tutorial-tic-tac-toe) website.
 
-Currently, two official plugins are available:
+It implements a new mechanic to the game: **Time Travel**  
+Now the players can use the *Time Machine* to go back to a previous state of the board. All the past moves are displayed at the right side of the board. Just clicking on them restores the board to a previous state.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Vite was used as a platform for this react app.
 
-## Expanding the ESLint configuration
+## Potential Future Updates:
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- ~~Add a Time Travel Mechanic so that player can restore any previous state of the board.~~
+
+- For the current move only, show “You are at move #…” instead of a button.
+
+- Rewrite Board to use two loops to make the squares instead of hardcoding them.
+
+- Add a toggle button that lets you sort the moves in either ascending or descending order.
+
+- When someone wins, highlight the three squares that caused the win (and when no one wins, display a message about the result being a draw).
+
+- Ask for the names of the player before starting, rather than using conventional Player-1 & Player-2
+
+- Display the location for each move in the format (row, col) in the move history list.
+
+- Store the history of previous winners of the game in the current session
+  
+- Implement an option to increase the size of the board from a traditional 3x3 to a higher value
