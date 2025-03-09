@@ -1,12 +1,58 @@
 import { useState } from "react";
 import "./App.css"
- 
-export default function Board() {
-    const [value, setValue] = useState(Array(9).fill(null));
+
+export default function Game() {
+    const [history, setHistory] = useState([Array(9).fill(null)]);
     const [player, setPlayer] = useState(true);
     // True = Player 1
     // False = Player 2
 
+    const currentBoard = history[history.length - 1];
+
+    function handlePlay(updatedBoard) {
+        setHistory([...history, updatedBoard]);
+        if (calculateWinner(updatedBoard)) {
+            gameWon(player);
+            const newArr = [Array(9).fill(null)];
+            setHistory(newArr);
+            setPlayer(true);
+            return;
+        }
+        setPlayer(!player);
+    }
+
+    function timeTravel(i) {
+        const pastArr = history.filter((arr, ind) => {
+            if (ind <= i) return true;
+        });
+        setHistory(pastArr);
+        if (i % 2 == 0) setPlayer(true);
+        else setPlayer(false);
+    }
+
+    const moves = history.map((values, ind) => {
+        let desc;
+        if (ind > 0) {
+            desc = "Go to move #" + ind;
+        } else {
+            desc = "Go to game start";
+        }
+        return (
+            <li className="movesList" key={ind}>
+                <button className="timeBtn" onClick={() => timeTravel(ind)}>{desc}</button>
+            </li>
+        )
+    })
+
+    return (
+        <div className="container">
+            <Board value={currentBoard} player={player} handlePlay={handlePlay}/>
+            <Machine travels={moves}/>
+        </div>
+    )
+}
+
+function Board({value, player, handlePlay}) {
     function onClickHandler(i) {
         if (value[i] != null) {
             return;
@@ -16,22 +62,11 @@ export default function Board() {
         const newValueArray = value.slice();
         player ? currSign = 'X' : currSign = 'O'
         newValueArray[i] = currSign;
-
-        setValue(newValueArray);
-
-        if (calculateWinner(newValueArray)) {
-            gameWon(player);
-            const arr = Array(9).fill(null);
-            setValue(arr);
-            setPlayer(true);
-            return;
-        }
-        
-        setPlayer(!player);
+        handlePlay(newValueArray);
     }
 
   return (
-    <>
+    <div className="board">
         <h1>Tic-Tac-Toe</h1>
         <h3>Player {player ? 1 : 2}'s Turn ({player ? 'X' : 'O'})</h3>
         <div className="Row">
@@ -49,15 +84,22 @@ export default function Board() {
             <Tile value={value[7]} onClick={() => onClickHandler(7)}/>
             <Tile value={value[8]} onClick={() => onClickHandler(8)}/>
         </div>
-    </>
+    </div>
   );
+}
+
+function Machine({travels}) {
+    return (
+        <div className="machine">
+            <h2>Time Machine:</h2>
+            <ul>{travels}</ul>
+        </div>
+    )
 }
 
 function Tile({value, onClick}) {
     return (
-        <>
-            <button className="Tile" onClick={onClick}>{value}</button>    
-        </>
+        <button className="Tile" onClick={onClick}>{value}</button>     
     )
 }
 
