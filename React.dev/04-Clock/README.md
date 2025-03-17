@@ -1,12 +1,19 @@
-# React + Vite
+# Working Clock App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my first attempt at building a working clock app using **React**.
 
-Currently, two official plugins are available:
+### Features of this digital clock:
+* Updates every second in real-time.
+* Dropdown menu to change text color.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Things I've learned while building this app:
+- `useState` hook in React.
+- Working with multiple components in React.
+- `Date()` JavaScript object to get the current time.
+- `label` and `select` HTML elements for a dropdown menu.
+- `onChange` handlers for `label`-`select` elements.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### What's Next?
+- A start/stop toggle for the clock.
+- Refactoring the component structure for better maintainability.
+- Using other hooks like `useEffect` for improved efficiency and readability.

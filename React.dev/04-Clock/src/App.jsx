@@ -1,14 +1,15 @@
 import { useState } from 'react'
-import './App.css'
 import Clock from './components/Clock.jsx'
+import './App.css'
 
 export default function App() {
     const [time, setTime] = useState(new Date().toLocaleTimeString());
-    setInterval(() => {
+    let [color, setColor] = useState('white');
+
+    const iid = setInterval(() => {
         setTime(new Date().toLocaleTimeString())
     }, 1000);
 
-    let [color, setColor] = useState('white');
     const handleChange = (event) => {
         setColor(event.target.value);
     };
@@ -16,7 +17,7 @@ export default function App() {
     return (
         <>
             <label htmlFor="colors">Pick a color: </label>
-            <select id="colors" value='white' onChange={handleChange}>
+            <select id="colors" onChange={handleChange}>
                 <option value="white">White</option>
                 <option value="red">Red</option>
                 <option value="blue">Blue</option>
@@ -25,9 +26,7 @@ export default function App() {
                 <option value="pink">Pink</option>
             </select>
             <Clock color={color} time={time}/>
-            <p></p>
+            {/* <button onClick={onClickHandler}>Stop</button> */}
         </>
     )
-
-    
 }
