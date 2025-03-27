@@ -48,25 +48,6 @@ export default function ShoppingCart() {
         return p.count > 0;
     })
     setProducts(newArr);
-
-    // if (products[productId].count == 1) {
-    //     setProducts(products.filter((p) => {
-    //         if (p.id != productId) return true;
-    //         return false; 
-    //     }));
-    //     return;
-    // }
-    // setProducts(products.map((p)=> {
-    //     if (p.id == productId) {
-    //         return {
-    //             ...p,
-    //             count: p.count - 1
-    //         }
-            
-    //     } else {
-    //         return p;
-    //     }
-    // }));
   }
 
   return (
