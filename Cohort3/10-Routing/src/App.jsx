@@ -1,14 +1,11 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
+
 export default function App() {
     return (
         <>
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<Landing />}/>
-                    <Route path="/neet" element={<Neet />}/>
-                </Routes>
-            </BrowserRouter>
+            <a href='https://www.google.com'>go to google</a>
+            <link to="https://www.google.com" />
         </>
     )
 };
