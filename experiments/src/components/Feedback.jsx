@@ -7,7 +7,6 @@ export default function FeedbackForm() {
   if (isSent) {
     return <h1>Thank you!</h1>;
   }
-  //   eslint-disable-next-line
   return (
     <form
       onSubmit={(e) => {
