@@ -1,19 +1,10 @@
 import { useState } from 'react'
 import DetailsInput from './DetailsInput'
 
-export default function InputForm ({ setIsSubmitted }) {
-  const [details, setDetails] = useState({
-    ownerName: '',
-    petName: '',
-    petType: '',
-    breed: '',
-    email: '',
-    phone: ''
-  })
+export default function InputForm ({ setDetails, setIsSubmitted }) {
 
   function handleSubmit (e) {
     e.preventDefault()
-    console.log(details)
     setIsSubmitted(true)
   }
 
